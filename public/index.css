@@ -13,7 +13,6 @@ html {
 /* Fonts from Google Fonts - more at https://fonts.google.com */
 body {
   font-family: "Open Sans", sans-serif;
-  padding: 25px 20px;
   margin: 0;
   text-align: center; }
 
@@ -96,3 +95,43 @@ h2 {
   background: #656565;
   border-radius: 20px 20px 200px 200px;
   margin: 0 auto; }
+
+.header {
+  padding: 1rem 1rem;
+  background: #41295a;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2F0743, #41295a);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2F0743, #41295a);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: 0 0.5rem 2rem rgba(51, 51, 51, 0.9);
+  font-size: 1rem;
+  height: 10vh;
+  margin-bottom: 5rem; }
+  .header__logo {
+    float: left; }
+  .header__logo-link {
+    color: #333; }
+  .header__logo-img {
+    color: #333; }
+  .header__nav {
+    list-style: none;
+    display: inline-block; }
+  .header__nav-item {
+    display: inline-block;
+    padding: 2rem; }
+  .header__nav-link {
+    text-decoration: none;
+    color: white; }
+  .header__auth {
+    float: right; }
+  .header__auth-nav {
+    list-style: none; }
+  .header__auth-nav-item {
+    display: inline-block;
+    padding: 1rem; }
+  .header__auth-nav-link {
+    text-decoration: none;
+    color: white; }
+  .header__user {
+    background-color: #FB8C00; }

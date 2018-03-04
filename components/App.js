@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import Burger from './Burger.js'
 import Ingredient from './Ingredient.js'
 import Aux from './Aux.js'
+import Header from './Header.js'
 
 class App extends Component {
         state={
@@ -13,7 +14,10 @@ class App extends Component {
 
     render(){
         return(
+
+
             <Aux>
+            <Header />
             <h1>The {this.state.burger_name}</h1>
             <h2>Only ${this.state.burger_price}</h2>
             <Burger>
