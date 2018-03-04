@@ -8,7 +8,7 @@ const Builder = props =>{
     return(
         <Aux>
             <Burger ingredients={props.ingredients}/>
-            <Panel/>
+            <Panel ingredients_list={props.ingredients_list}/>
         </Aux>
     )
 }

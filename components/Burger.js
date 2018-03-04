@@ -16,6 +16,7 @@ const Burger=(props)=>{
         {ingredients}
         
         <div className="burger__bun-bottom"></div>
+        <div className="plate"></div>
         </div>
 
        
