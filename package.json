@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/sergetoure09/myburger#readme",
   "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
@@ -29,6 +30,7 @@
     "babel-loader": "^7.1.3",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-react-app": "^3.1.1",
     "css-loader": "^0.28.10",
     "node-sass": "^4.7.2",
     "style-loader": "^0.20.2",

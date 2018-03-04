@@ -1,0 +1,82 @@
+
+/* Set the maximum width of your burger */
+.burger {
+    max-width: 500px;
+    margin: 0 auto;
+  
+                        /* This center-aligns all of the ingredients */
+                        div {
+                        margin: 0 auto;
+                            }
+                    
+                    
+                    
+                    
+                    //ingredients
+                    
+                    
+                    &__bun-top {
+                        height: 70px;
+                        width: 60%;
+                        background: #e5b05a;
+                        border-radius: 100px 100px 20px 20px;
+                        border-bottom: solid 10px rgba(0,0,0,.1);
+                    }
+                    
+                    &__cheese {
+                        height: 15px;
+                        width: 65%;
+                        background: #f2c120;
+                        border-bottom: solid 2px rgba(0,0,0,.1);
+                    }
+                    
+                    &__tomato {
+                        height: 25px;
+                        width: 50%;
+                        background-color: #dd3710;
+                        border-bottom: solid 2px rgba(0,0,0,.1);
+                    }
+                    
+                    &__meatball {
+                        height: 60px;
+                        width: 70px;
+                        background: #74380d;
+                        border-radius: 50px;
+                        display: inline-block;
+                        vertical-align: top;
+                    }
+                    
+                    &__patty {
+                        height: 35px;
+                        width: 65%;
+                        background: #ad370b;
+                        border-radius: 15px;
+                        border-bottom: solid 2px rgba(0,0,0,.1);
+                    }
+                    
+                    &__pickle {
+                        height: 30px;
+                        width: 50%;
+                        background: #3ac67d;
+                        border-radius: 0 0 100px 100px;
+                        border-bottom: solid 10px #2d9961;
+                    }
+                    
+                    &__onion {
+                        width: 40%;
+                        background-color: #a039bf;
+                        border-top: dotted 20px rgba(255,255,255,.2);
+                    }
+                    
+                    &__bun-bottom {
+                        height: 35px;
+                        width: 60%;
+                        background: #e5b05a;
+                        border-radius: 20px 20px 40px 40px;
+                        border-top: solid 8px rgba(0,0,0,.1)
+                    }
+                    
+  
+  }
+  
+  
