@@ -7,7 +7,7 @@ class App extends Component {
         state={
             burger_name:"Giant Burger",
             burger_price:0,
-            selected_ingredients:["cheese","patty","cheese"],
+            selected_ingredients:["cheese","tomato","patty"],
             ingredients_list:
                                 {
                                     cheese:2,
@@ -20,11 +20,10 @@ class App extends Component {
         
         }
 
-    updatePrice=()=>{
-        let totalPrice=0
-        for (var el of this.state.selected_ingredients){
-            totalPrice+=this.state.ingredients_list[el]
-        }
+    updatePrice=(el)=>{
+        let totalPrice=this.state.burger_price
+        totalPrice+=this.state.ingredients_list[el]
+        
         this.setState({
             burger_price:totalPrice
         })
@@ -32,7 +31,7 @@ class App extends Component {
         
     }
     componentDidMount=()=>{
-        this.updatePrice()
+        this.updatePrice("patty")
     }
 
     render(){
