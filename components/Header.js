@@ -1,5 +1,5 @@
 import React from 'react'
-import Aux from './Aux'
+import Aux from './Aux.js'
 
 
 const Header=props=>{
@@ -28,7 +28,7 @@ const Header=props=>{
                 </li>
 
                  <li className="header__auth-nav-item">
-                    <a href="#" className="header__auth-nav-link"><i class="material-icons header__user">account_circle</i></a>
+                    <a href="#" className="header__auth-nav-link"><i class="material-icons header__user md-36">account_circle</i></a>
                 </li>
             </ul>
             </div>
