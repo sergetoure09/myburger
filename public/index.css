@@ -212,8 +212,11 @@ h2 {
     background-color: #512DA8;
     color: white;
     box-shadow: 0 0.3rem 0.8rem rgba(119, 116, 116, 0.8);
-    cursor: pointer; }
+    cursor: pointer;
+    transition: all .2s; }
     .controller__btn:not(:last-child) {
       margin-right: 2px; }
     .controller__btn:hover {
       transform: translateY(-1px); }
+    .controller__btn:active {
+      transform: translateY(1px); }
