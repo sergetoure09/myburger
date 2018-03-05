@@ -7,7 +7,7 @@ class App extends Component {
         state={
             burger_name:"Giant Burger",
             burger_price:0,
-            selected_ingredients:["cheese","patty","cheese"],
+            selected_ingredients:["cheese","patty","cheese","tomato","pickle","patty"],
             ingredients_list:
                                 {
                                     cheese:2,
