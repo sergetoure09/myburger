@@ -19,6 +19,9 @@ const Ingredient=props=>{
 
         case "meatball":
         return <div className="burger__meatball"></div>
+
+        default:
+        return <div>Add ingredients</div>
         
     }
 }
