@@ -72,10 +72,17 @@ h2 {
     .container .row .col-4-of-4 {
       width: calc(((100% - 3 * 5rem)/4) * 4 + 3 * 5rem); }
 
+.panel {
+  height: 30rem;
+  padding: 3rem 12rem;
+  border-left: 5px solid #512DA8; }
+
 /* Set the maximum width of your burger */
 .burger {
   max-width: 50rem;
-  margin: 0 auto;
+  margin: 5rem auto;
+  max-height: 30rem;
+  overflow: scroll;
   /* This center-aligns all of the ingredients */ }
   .burger div {
     margin: 0 auto; }
@@ -175,3 +182,38 @@ h2 {
   background: #656565;
   border-radius: 2rem 2rem 20rem 20rem;
   margin: 0 auto; }
+
+.controller {
+  padding: 5px 0; }
+  .controller ::after {
+    content: "";
+    display: block;
+    clear: both; }
+  .controller:not(:last-child) {
+    margin-bottom: 3rem; }
+  .controller__ingredient {
+    display: block;
+    font-size: 1.4rem;
+    float: left;
+    margin-top: 6px;
+    padding: 1px;
+    width: 50%; }
+  .controller__control-btn {
+    float: right;
+    width: 50%; }
+  .controller__btn {
+    text-decoration: none;
+    outline: none;
+    border: none;
+    height: 3rem;
+    display: inline-block;
+    width: 40%;
+    padding: 3px;
+    background-color: #512DA8;
+    color: white;
+    box-shadow: 0 0.3rem 0.8rem rgba(119, 116, 116, 0.8);
+    cursor: pointer; }
+    .controller__btn:not(:last-child) {
+      margin-right: 2px; }
+    .controller__btn:hover {
+      transform: translateY(-1px); }

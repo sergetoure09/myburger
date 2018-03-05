@@ -2,7 +2,9 @@
 /* Set the maximum width of your burger */
 .burger {
     max-width: 50rem;
-    margin: 0 auto;
+    margin: 5rem auto;
+    max-height: 30rem;
+    overflow: scroll;
   
                         /* This center-aligns all of the ingredients */
                         div {
