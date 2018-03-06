@@ -15,7 +15,7 @@ const Burger=(props)=>{
         
         <div className="burger">
         <div className="burger__bun-top"></div>
-        {ingredients.length>0 ? ingredients : <Ingredient/> }
+        {ingredients.length > 0 ? ingredients : <Ingredient/> }
         <div className="burger__bun-bottom"></div>
         <div className="plate"></div>
         </div>
