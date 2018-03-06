@@ -2,11 +2,12 @@ import React,{Component} from 'react'
 import Aux from './Aux.js'
 import Header from './Header.js'
 import Builder from './Builder.js'
+import Checkout from './Checkout.js'
 
 class App extends Component {
         state={
             burger_name:"Giant Burger",
-            burger_price:0,
+            burgerPrice:0,
             selected_ingredients:[],
             ingredients_list:
                                 {
@@ -21,11 +22,11 @@ class App extends Component {
         
         }
         updatePrice=(el,op)=>{
-            let totalPrice=this.state.burger_price
-            op ==1 ? totalPrice+=this.state.ingredients_list[el]:totalPrice-=this.state.ingredients_list[el]
+            let totalPrice=this.state.burgerPrice
+            op == 1 ? totalPrice+=this.state.ingredients_list[el]:totalPrice-=this.state.ingredients_list[el]
             totalPrice < 0 ? totalPrice=0 : totalPrice=totalPrice
             this.setState({
-                burger_price:totalPrice
+                burgerPrice:Number.parseFloat(totalPrice.toFixed(1))
             })    
         }
 
@@ -65,8 +66,7 @@ class App extends Component {
 
             <Aux>
                 <Header />
-                <h1>The {this.state.burger_name}</h1>
-                <h2>Only ${this.state.burger_price}</h2>
+                <Checkout totalPrice={this.state.burgerPrice}/>
                 <Builder ingredients={this.state.selected_ingredients} ingredients_list={this.state.ingredients_list} handleAdd={this.addIngredient} handleRemove={this.removeIngredient} />
             </Aux>
         )
