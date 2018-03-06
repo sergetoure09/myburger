@@ -2,22 +2,24 @@
     @include clearfix;
     padding: 5px 0;
     &:not(:last-child){
-        margin-bottom: 3rem;
+        margin-bottom: .5rem;
 
     }
-    
-  // border: 1px solid green;
-
 
 
     &__ingredient{
         display: block;
         font-size: 1.4rem;
         float: left;
-       margin-top: 6px;
-       padding: 1px;
-       width: 50%;
-       //border: 1px solid orangered;
+        margin-top: .3rem;
+        padding: 1px;
+        width: 50%;
+        text-transform: uppercase;
+        font-weight: 700;
+        text-align: left;
+       //border: 1px dotted $color-primary;
+       color: $color-primary;
+       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         
 
     }
@@ -34,7 +36,7 @@
         text-decoration: none;
         outline: none;
         border: none;
-        height: 3rem;;
+        height: 2rem;;
         //border: 1px solid red;
         // cursor: pointer;
         &:not(:last-child){
@@ -43,7 +45,7 @@
 
         display: inline-block;
         width: 40%;
-        padding: 3px;
+        //padding: 3px;
         background-color:$color-primary;
         color: white;
         box-shadow: 0 .3rem .8rem rgba(rgb(119, 116, 116),.8);
@@ -53,7 +55,7 @@
 
 
         &:hover{
-            transform: translateY(-1px);
+           // transform: translateY(-1px);
         }
 
         &:active{
@@ -64,11 +66,14 @@
      
        
         &--add{
+            border-radius: 50px 0 0 50px;
+            
 
         }
 
 
         &--remove{
+            border-radius: 0 50px 50px 0;
 
         }
     }
