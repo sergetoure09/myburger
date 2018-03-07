@@ -11,19 +11,20 @@ class App extends Component {
             selected_ingredients:[],
             ingredients_list:
                                 {
-                                    cheese:4,
-                                    tomato:3,
-                                    patty:5,
-                                    pickle:0.5,
-                                    meatball:1,
-                                    onion:0.3
+                                    cheese:{up:4,icon:"./img/009-tortillas.svg"},
+                                    tomato:{up:2,icon:"./img/014-tomato.svg"},
+                                    patty:{up:5,icon:"./img/006-steak.svg"},
+                                    pickle:{up:1,icon:"./img/008-pickle.svg"},
+                                    meatball:{up:0.5,icon:"./img/003-meatball.svg"},
+                                    onion:{up:0.5,icon:"./img/002-onion.svg"},
+                                    // klaklo:{up:0.5,icon:"./img/018-hamburger.svg"}
                                     
                                 }
         
         }
         updatePrice=(el,op)=>{
             let totalPrice=this.state.burgerPrice
-            op == 1 ? totalPrice+=this.state.ingredients_list[el]:totalPrice-=this.state.ingredients_list[el]
+            op == 1 ? totalPrice+=this.state.ingredients_list[el].up:totalPrice-=this.state.ingredients_list[el].up
             totalPrice < 0 ? totalPrice=0 : totalPrice=totalPrice
             this.setState({
                 burgerPrice:Number.parseFloat(totalPrice.toFixed(1))

@@ -1,28 +1,19 @@
 .checkout-btn{
         &:link,
         &:visited{
-    display: block;
-    width: 25rem;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    margin: 0 auto;
-    font-size:1.5rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    background-image: linear-gradient(to left,$color-primary,$color-primary-light);
-    color:rgba(white,.5);
-    transition: all .2s;
-    box-shadow: 0 .7rem 1rem rgba(rgb(134, 131, 131),.5);
+            @include checkout;
+            background-image: linear-gradient(to left,$color-primary,$color-primary-light);
+            cursor: pointer;
+    
     
         }
 
         &--isDisabled{
+            @include checkout;
             cursor:not-allowed;
-            background-image: linear-gradient(to left,grey,black);
-
-            
-
-            
+            background-color: grey;
+            color: black;
+      
         }
 
         &:hover{

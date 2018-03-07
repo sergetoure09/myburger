@@ -6,12 +6,20 @@
 
     }
 
+    &__icon{
+        display: block;
+        float: left;
+        width: 3rem;
+        margin-right: 1rem;
+        margin-top: .3rem;
+    }
+
 
     &__ingredient{
         display: block;
         font-size: 1.4rem;
         float: left;
-        margin-top: .3rem;
+        margin-top: 2rem;
         padding: 1px;
         width: 50%;
         text-transform: uppercase;
@@ -26,7 +34,8 @@
     &__control-btn{
         float: right;
        // border: 1px solid yellow;
-        width: 50%;   
+        width: 50%; 
+        margin-top: -2rem;  
 
 
     }

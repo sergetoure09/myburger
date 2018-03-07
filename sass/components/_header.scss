@@ -16,24 +16,47 @@
     &__logo{
 
         float: left;
+        width: 15rem;
+        @include clearfix;
 
 
     }
 
     &__logo-link{
-        color: #333;
+        //color: #333;
+        text-decoration: none;
+        color: white;
 
     }
 
     &__logo-img{
         color: #333;
+        display: block;
+        float: left;
+        width: 100%;
+
+       
+        
+       
+
 
     }
+
+    // &__slogan{
+    //     display: block;
+    //     float: right;
+    //     color: inherit;
+    //     margin-top: 2rem;
+    //     font-size: 5rem;
+        
+
+    // }
 
 
     &__nav{
         list-style: none;
         display: inline-block;
+        font-size: 1.6rem;
       
     }
 
@@ -68,6 +91,7 @@
 
     &__auth-nav{
         list-style: none;
+        //font-size: 1.2rem;
     }
 
 

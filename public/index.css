@@ -84,7 +84,7 @@ h2 {
       width: calc(((100% - 3 * 5rem)/4) * 4 + 3 * 5rem); }
 
 .panel {
-  height: 30rem;
+  height: auto;
   padding: 3rem 12rem;
   background-color: rgba(233, 231, 231, 0.164); }
 
@@ -92,7 +92,7 @@ h2 {
 .burger {
   max-width: 50rem;
   margin: 5rem auto;
-  max-height: 30rem;
+  max-height: 50rem;
   overflow: scroll;
   /* This center-aligns all of the ingredients */ }
   .burger:hover div[class^='burger__'] {
@@ -161,14 +161,24 @@ h2 {
   height: 10vh;
   margin-bottom: 5rem; }
   .header__logo {
-    float: left; }
+    float: left;
+    width: 15rem; }
+    .header__logo ::after {
+      content: "";
+      display: block;
+      clear: both; }
   .header__logo-link {
-    color: #333; }
+    text-decoration: none;
+    color: white; }
   .header__logo-img {
-    color: #333; }
+    color: #333;
+    display: block;
+    float: left;
+    width: 100%; }
   .header__nav {
     list-style: none;
-    display: inline-block; }
+    display: inline-block;
+    font-size: 1.6rem; }
   .header__nav-item {
     display: inline-block; }
   .header__nav-link {
@@ -207,11 +217,17 @@ h2 {
     clear: both; }
   .controller:not(:last-child) {
     margin-bottom: .5rem; }
+  .controller__icon {
+    display: block;
+    float: left;
+    width: 3rem;
+    margin-right: 1rem;
+    margin-top: .3rem; }
   .controller__ingredient {
     display: block;
     font-size: 1.4rem;
     float: left;
-    margin-top: .3rem;
+    margin-top: 2rem;
     padding: 1px;
     width: 50%;
     text-transform: uppercase;
@@ -221,7 +237,8 @@ h2 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; }
   .controller__control-btn {
     float: right;
-    width: 50%; }
+    width: 50%;
+    margin-top: -2rem; }
   .controller__btn {
     text-decoration: none;
     outline: none;
@@ -252,14 +269,27 @@ h2 {
   font-size: 1.5rem;
   text-transform: uppercase;
   text-decoration: none;
-  background-image: linear-gradient(to left, #512DA8, #e43a15);
   color: rgba(255, 255, 255, 0.5);
   transition: all .2s;
-  box-shadow: 0 0.7rem 1rem rgba(134, 131, 131, 0.5); }
+  box-shadow: 0 0.7rem 1rem rgba(134, 131, 131, 0.5);
+  background-image: linear-gradient(to left, #512DA8, #e43a15);
+  cursor: pointer; }
 
 .checkout-btn--isDisabled {
+  display: block;
+  width: 25rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all .2s;
+  box-shadow: 0 0.7rem 1rem rgba(134, 131, 131, 0.5);
   cursor: not-allowed;
-  background-image: linear-gradient(to left, grey, black); }
+  background-color: grey;
+  color: black; }
 
 .checkout-btn:hover {
   color: white; }
