@@ -5,3 +5,19 @@
         clear: both
     }
 }
+
+
+@mixin checkout{
+    display: block;
+    width: 25rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    margin: 0 auto;
+    font-size:1.5rem;
+    text-transform: uppercase;
+    text-decoration: none;
+   
+    color:rgba(white,.5);
+    transition: all .2s;
+    box-shadow: 0 .7rem 1rem rgba(rgb(134, 131, 131),.5);
+}

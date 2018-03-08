@@ -1,0 +1,49 @@
+.checkout-btn{
+        &:link,
+        &:visited{
+            @include checkout;
+            background-image: linear-gradient(to left,$color-primary,$color-primary-light);
+            cursor: pointer;
+            pointer-events: all;
+    
+    
+        }
+
+        &--isDisabled{
+            @include checkout;
+            
+            background-color: grey;
+            color: black;
+            pointer-events: none;
+          
+      
+        }
+
+        &:hover{
+            color:rgba(white,1);
+        }
+
+        &:active{
+            
+            transform: translateY(1px);
+            box-shadow: 0 .4rem 1rem rgba(rgb(134, 131, 131),.5)
+
+        }
+
+        
+
+
+
+       
+
+
+    &__icon{
+        color: inherit;
+
+    }
+
+    &__price{
+        font-size: 2.5rem;
+    }
+
+}

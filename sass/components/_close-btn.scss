@@ -1,0 +1,19 @@
+.close-btn{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: $color-primary;
+    font-weight: 600;
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    transition: all .2s;
+
+    &:hover{
+        font-size: 1.8rem;
+
+        &::after{
+            content: " close"
+        }
+    }
+}

@@ -2,30 +2,34 @@ import React,{Component} from 'react'
 import Aux from './Aux.js'
 import Header from './Header.js'
 import Builder from './Builder.js'
+import Checkout from './Checkout.js'
+import Backdrop from './Backdrop.js'
+import OrderSummary from './OrderSummary.js'
 
 class App extends Component {
         state={
             burger_name:"Giant Burger",
-            burger_price:0,
+            burgerPrice:0,
             selected_ingredients:[],
             ingredients_list:
                                 {
-                                    cheese:4,
-                                    tomato:3,
-                                    patty:5,
-                                    pickle:0.5,
-                                    meatball:1,
-                                    onion:0.3
+                                    cheese:{up:4,icon:"./img/009-tortillas.svg"},
+                                    tomato:{up:2,icon:"./img/014-tomato.svg"},
+                                    patty:{up:5,icon:"./img/006-steak.svg"},
+                                    pickle:{up:1,icon:"./img/008-pickle.svg"},
+                                    meatball:{up:0.5,icon:"./img/003-meatball.svg"},
+                                    onion:{up:0.5,icon:"./img/002-onion.svg"},
+                                    // klaklo:{up:0.5,icon:"./img/018-hamburger.svg"}
                                     
                                 }
         
         }
         updatePrice=(el,op)=>{
-            let totalPrice=this.state.burger_price
-            op ==1 ? totalPrice+=this.state.ingredients_list[el]:totalPrice-=this.state.ingredients_list[el]
+            let totalPrice=this.state.burgerPrice
+            op == 1 ? totalPrice+=this.state.ingredients_list[el].up:totalPrice-=this.state.ingredients_list[el].up
             totalPrice < 0 ? totalPrice=0 : totalPrice=totalPrice
             this.setState({
-                burger_price:totalPrice
+                burgerPrice:Number.parseFloat(totalPrice.toFixed(1))
             })    
         }
 
@@ -63,11 +67,28 @@ class App extends Component {
         return(
 
 
-            <Aux>
+            <Aux id="main">
+
+                <Backdrop>
+                    <OrderSummary 
+                                ingredients={this.state.selected_ingredients} 
+                                totalPrice={this.state.burgerPrice} 
+                                burger_name={this.state.burger_name} 
+                                ingredients_list={this.state.ingredients_list} 
+                    />
+                </Backdrop>
+                
                 <Header />
-                <h1>The {this.state.burger_name}</h1>
-                <h2>Only ${this.state.burger_price}</h2>
-                <Builder ingredients={this.state.selected_ingredients} ingredients_list={this.state.ingredients_list} handleAdd={this.addIngredient} handleRemove={this.removeIngredient} />
+                
+                <Checkout totalPrice={this.state.burgerPrice}/>
+                
+                <Builder 
+                        ingredients={this.state.selected_ingredients} 
+                        ingredients_list={this.state.ingredients_list} 
+                        handleAdd={this.addIngredient} 
+                        handleRemove={this.removeIngredient} 
+                />
+
             </Aux>
         )
     }

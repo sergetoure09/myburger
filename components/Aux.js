@@ -4,7 +4,7 @@ import React from 'react'
 
 const Aux=(props)=>{
     return(
-        <div className={props.classes}>
+        <div className={props.classes} id={props.id}>
         {props.children}
         </div>
     )

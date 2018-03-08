@@ -6,7 +6,7 @@ const Header=props=>{
     return(
 
         <Aux classes="header">
-            <div className="header__logo"><a href="#" className="header__logo-link"><img src="#" className="header__logo-img" /></a></div>
+            <div className="header__logo"><a href="/" className="header__logo-link"><img src="./img/018-hamburger.svg"  className="header__logo-img" /></a></div>
             <ul className="header__nav">
                 <li className="header__nav-item">
                     <a href="#" className="header__nav-link">compose your burger</a>

@@ -7,7 +7,7 @@
     background: -webkit-linear-gradient(to right, #512DA8, #673AB7);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, $color-primary,$color-primary-light); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
-    box-shadow: 0 .5rem 2rem rgba(#333,.9);
+    box-shadow: 0 .5rem 2rem rgba(#333,.5);
     font-size: 1rem;
     height: 10vh;
     margin-bottom: 5rem;
@@ -16,24 +16,47 @@
     &__logo{
 
         float: left;
+        width: 10rem;
+        @include clearfix;
 
 
     }
 
     &__logo-link{
-        color: #333;
+        //color: #333;
+        text-decoration: none;
+        color: white;
 
     }
 
     &__logo-img{
         color: #333;
+        display: block;
+        float: left;
+        width: 100%;
+
+       
+        
+       
+
 
     }
+
+    // &__slogan{
+    //     display: block;
+    //     float: right;
+    //     color: inherit;
+    //     margin-top: 2rem;
+    //     font-size: 5rem;
+        
+
+    // }
 
 
     &__nav{
         list-style: none;
         display: inline-block;
+        font-size: 1.6rem;
       
     }
 
@@ -68,6 +91,7 @@
 
     &__auth-nav{
         list-style: none;
+        //font-size: 1.2rem;
     }
 
 

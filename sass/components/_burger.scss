@@ -3,8 +3,9 @@
 .burger {
     max-width: 50rem;
     margin: 5rem auto;
-    max-height: 50rem;
-    overflow: scroll;
+    max-height: 60rem;
+    overflow:scroll;
+   
    
 
     &:hover div[class^='burger__']{
