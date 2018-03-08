@@ -26,12 +26,16 @@ const OrderSummary=props=>{
         <Aux classes="container">
         <Aux classes="row">
                 <Aux classes="col-2-of-4">
+                <h2 className="order-price">Total price is $ {props.totalPrice}</h2>
                 <Burger ingredients={props.ingredients}/>
                 </Aux>
                 <Aux classes="col-2-of-4">
                 <h1>Confirm your order !</h1>
                 {ingredient_item}
-                <h3>Total price is $ {props.totalPrice}</h3>
+                <a href="" className="order-btn order-btn--confirm">confirm</a>
+                <a href="#main" className="order-btn order-btn--edit">edit</a>
+                <a href="/" className="order-btn order-btn--abort">abort</a>
+                
                 </Aux>
         </Aux>
         </Aux>
