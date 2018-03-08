@@ -4,15 +4,18 @@
             @include checkout;
             background-image: linear-gradient(to left,$color-primary,$color-primary-light);
             cursor: pointer;
+            pointer-events: all;
     
     
         }
 
         &--isDisabled{
             @include checkout;
-            cursor:not-allowed;
+            
             background-color: grey;
             color: black;
+            pointer-events: none;
+          
       
         }
 

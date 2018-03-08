@@ -1,5 +1,5 @@
 import React from 'react'
-import Burger from './Burger.js'
+import Burger from './Burger'
 import Panel from './Panel.js'
 import Aux from './Aux.js'
 

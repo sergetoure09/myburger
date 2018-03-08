@@ -57,7 +57,7 @@
         //padding: 3px;
         background-color:$color-primary;
         color: white;
-        box-shadow: 0 .3rem .8rem rgba(rgb(119, 116, 116),.8);
+        box-shadow: 0 .4rem .8rem rgba(rgb(119, 116, 116),.8);
         cursor: pointer;
         transition: all .2s;
 
@@ -68,7 +68,8 @@
         }
 
         &:active{
-            transform: translateY(1px)
+            transform: translateY(1px);
+            box-shadow: 0 .2rem .7rem rgba(rgb(119, 116, 116),.8);
         }
 
         

@@ -20,7 +20,7 @@ h1 {
   font-size: 30px;
   text-align: center;
   margin: 0;
-  width: 100%;
+  width: 70%;
   padding: 5px 0;
   background: #512DA8;
   text-shadow: 0px 2px 0 rgba(0, 0, 0, 0.2);
@@ -69,30 +69,59 @@ h2 {
   .container [class^="col-"] {
     float: left; }
     .container [class^="col-"]:not(:last-child) {
-      margin-right: 5rem; }
+      margin-right: 8rem; }
   .container .row {
     width: 100%; }
     .container .row:not(:last-child) {
       margin-bottom: 3rem; }
     .container .row .col-1-of-4 {
-      width: calc((100% - 3 * 5rem)/4); }
+      width: calc((100% - 3 * 8rem)/4); }
     .container .row .col-2-of-4 {
-      width: calc(((100% - 3 * 5rem)/4) * 2 + 1 * 5rem); }
+      width: calc(((100% - 3 * 8rem)/4) * 2 + 1 * 8rem); }
     .container .row .col-3-of-4 {
-      width: calc(((100% - 3 * 5rem)/4) * 3 + 2 * 5rem); }
+      width: calc(((100% - 3 * 8rem)/4) * 3 + 2 * 8rem); }
     .container .row .col-4-of-4 {
-      width: calc(((100% - 3 * 5rem)/4) * 4 + 3 * 5rem); }
+      width: calc(((100% - 3 * 8rem)/4) * 4 + 3 * 8rem); }
 
 .panel {
   height: auto;
   padding: 3rem 12rem;
   background-color: rgba(233, 231, 231, 0.164); }
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(51, 51, 51, 0.8);
+  z-index: 1000;
+  display: none;
+  transform: scale(0.1);
+  transition: all .2s ease-out; }
+  .backdrop:target {
+    display: block;
+    transform: scale(1); }
+  .backdrop:hover .order-summary {
+    transform: translate(-50%, -50%) scale(1); }
+
+.order-summary {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 80%;
+  height: auto;
+  background-image: linear-gradient(90deg, #da4453 50%, white 50%);
+  background-size: cover no-repeat;
+  border-radius: 5px;
+  transition: all .4s ease; }
+
 /* Set the maximum width of your burger */
 .burger {
   max-width: 50rem;
   margin: 5rem auto;
-  max-height: 50rem;
+  max-height: 60rem;
   overflow: scroll;
   /* This center-aligns all of the ingredients */ }
   .burger:hover div[class^='burger__'] {
@@ -162,7 +191,7 @@ h2 {
   margin-bottom: 5rem; }
   .header__logo {
     float: left;
-    width: 15rem; }
+    width: 10rem; }
     .header__logo ::after {
       content: "";
       display: block;
@@ -248,13 +277,14 @@ h2 {
     width: 40%;
     background-color: #512DA8;
     color: white;
-    box-shadow: 0 0.3rem 0.8rem rgba(119, 116, 116, 0.8);
+    box-shadow: 0 0.4rem 0.8rem rgba(119, 116, 116, 0.8);
     cursor: pointer;
     transition: all .2s; }
     .controller__btn:not(:last-child) {
       margin-right: 2px; }
     .controller__btn:active {
-      transform: translateY(1px); }
+      transform: translateY(1px);
+      box-shadow: 0 0.2rem 0.7rem rgba(119, 116, 116, 0.8); }
     .controller__btn--add {
       border-radius: 50px 0 0 50px; }
     .controller__btn--remove {
@@ -273,7 +303,8 @@ h2 {
   transition: all .2s;
   box-shadow: 0 0.7rem 1rem rgba(134, 131, 131, 0.5);
   background-image: linear-gradient(to left, #512DA8, #e43a15);
-  cursor: pointer; }
+  cursor: pointer;
+  pointer-events: all; }
 
 .checkout-btn--isDisabled {
   display: block;
@@ -287,9 +318,9 @@ h2 {
   color: rgba(255, 255, 255, 0.5);
   transition: all .2s;
   box-shadow: 0 0.7rem 1rem rgba(134, 131, 131, 0.5);
-  cursor: not-allowed;
   background-color: grey;
-  color: black; }
+  color: black;
+  pointer-events: none; }
 
 .checkout-btn:hover {
   color: white; }
@@ -303,3 +334,18 @@ h2 {
 
 .checkout-btn__price {
   font-size: 2.5rem; }
+
+.close-btn {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #512DA8;
+  font-weight: 600;
+  display: block;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  transition: all .2s; }
+  .close-btn:hover {
+    font-size: 1.8rem; }
+    .close-btn:hover::after {
+      content: " close"; }

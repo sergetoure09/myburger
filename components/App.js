@@ -3,6 +3,8 @@ import Aux from './Aux.js'
 import Header from './Header.js'
 import Builder from './Builder.js'
 import Checkout from './Checkout.js'
+import Backdrop from './Backdrop.js'
+import OrderSummary from './OrderSummary.js'
 
 class App extends Component {
         state={
@@ -65,10 +67,28 @@ class App extends Component {
         return(
 
 
-            <Aux>
+            <Aux id="main">
+
+                <Backdrop>
+                    <OrderSummary 
+                                ingredients={this.state.selected_ingredients} 
+                                totalPrice={this.state.burgerPrice} 
+                                burger_name={this.state.burger_name} 
+                                ingredients_list={this.state.ingredients_list} 
+                    />
+                </Backdrop>
+                
                 <Header />
+                
                 <Checkout totalPrice={this.state.burgerPrice}/>
-                <Builder ingredients={this.state.selected_ingredients} ingredients_list={this.state.ingredients_list} handleAdd={this.addIngredient} handleRemove={this.removeIngredient} />
+                
+                <Builder 
+                        ingredients={this.state.selected_ingredients} 
+                        ingredients_list={this.state.ingredients_list} 
+                        handleAdd={this.addIngredient} 
+                        handleRemove={this.removeIngredient} 
+                />
+
             </Aux>
         )
     }
