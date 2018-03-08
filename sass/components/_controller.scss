@@ -5,6 +5,7 @@
         margin-bottom: .5rem;
 
     }
+    //border: 1px solid green;
 
     &__icon{
         display: block;
@@ -21,7 +22,7 @@
         float: left;
         margin-top: 2rem;
         padding: 1px;
-        width: 50%;
+        width: 40%;
         text-transform: uppercase;
         font-weight: 700;
         text-align: left;
@@ -38,6 +39,36 @@
         margin-top: -2rem;  
 
 
+    }
+
+    &__item-price{
+
+        //border: 1px solid green;
+        width: 20rem;
+        float: right;
+        margin-top: 1.5rem;
+        font-size: 1.8rem;
+        margin-right: 6rem;
+        color: $color-primary;
+        font-weight: 500;
+        //height: 5rem;
+
+
+
+           .quant{
+               display: inline-block;
+               float: left;
+               color: $color-green-primary;
+               
+               
+
+           }
+
+
+           .up{
+            display: inline-block;
+
+           }
     }
 
   
