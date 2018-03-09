@@ -11,7 +11,7 @@ const Checkout=props=>{
     return(
         <Aux>
            <a href="#backdrop" className={classes.join(" ")}>
-            <i class="material-icons md-36 checkout-btn__icon">shopping_cart</i>
+            <i className="material-icons md-36 checkout-btn__icon">shopping_cart</i>
             &nbsp;&nbsp;
             checkout&nbsp;&nbsp;  
             <span className="checkout-btn__price">&#36;{props.totalPrice}</span>

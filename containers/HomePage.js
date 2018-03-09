@@ -1,12 +1,12 @@
 import React,{Component} from 'react'
-import Aux from './Aux.js'
-import Header from './Header.js'
-import Builder from './Builder.js'
-import Checkout from './Checkout.js'
-import Backdrop from './Backdrop.js'
-import OrderSummary from './OrderSummary.js'
+import Aux from '../components/Aux.js'
+import Builder from '../components/Builder.js'
+import Checkout from '../components/Checkout.js'
+import Backdrop from '../components/Backdrop.js'
+import OrderSummary from '../components/OrderSummary.js'
 
-class App extends Component {
+
+class HomePage extends Component {
         state={
             burger_name:"Giant Burger",
             burgerPrice:0,
@@ -77,17 +77,14 @@ class App extends Component {
                                 ingredients_list={this.state.ingredients_list} 
                     />
                 </Backdrop>
-                
-                <Header />
-                
                 <Checkout totalPrice={this.state.burgerPrice}/>
-                
                 <Builder 
                         ingredients={this.state.selected_ingredients} 
                         ingredients_list={this.state.ingredients_list} 
                         handleAdd={this.addIngredient} 
                         handleRemove={this.removeIngredient} 
                 />
+               
 
             </Aux>
         )
@@ -95,4 +92,4 @@ class App extends Component {
 
 }
 
-export default App
+export default HomePage

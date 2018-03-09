@@ -8,8 +8,8 @@ const Control=props=>{
         <img src={props.icon} className="controller__icon" alt="ingredient icon"/>
         <span className="controller__ingredient">{props.ingredient}</span>
         <div className="controller__control-btn">
-        <i class="material-icons md-18 controller__btn controller__btn--add" onClick={props.handleAdd}>add</i>
-        <i class="material-icons md-18 controller__btn controller__btn--remove" onClick={props.handleRemove}>remove</i>
+        <i className="material-icons md-18 controller__btn controller__btn--add" onClick={props.handleAdd}>add</i>
+        <i className="material-icons md-18 controller__btn controller__btn--remove" onClick={props.handleRemove}>remove</i>
         </div>
         </Aux>
     )

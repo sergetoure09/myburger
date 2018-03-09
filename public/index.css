@@ -362,7 +362,7 @@ h2 {
 
 .close-btn {
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   color: #512DA8;
   font-weight: 600;
   display: block;
@@ -377,7 +377,7 @@ h2 {
 
 .order-btn {
   display: inline-block;
-  margin-top: 2rem;
+  margin-top: 5rem;
   margin-right: 2rem;
   text-decoration: none;
   padding: 1rem 3rem;
@@ -385,9 +385,10 @@ h2 {
   border-radius: 50px;
   border: 2px solid #512DA8;
   transition: all .3s; }
+  .order-btn:active {
+    transform: translateY(2px); }
   .order-btn:hover {
     background-color: #512DA8;
-    border-color: white;
     color: white; }
   .order-btn--confirm {
     border: 2px solid #512DA8; }
@@ -395,11 +396,9 @@ h2 {
     border: 2px solid #DA4453; }
     .order-btn--abort:hover {
       background-color: #DA4453;
-      border-color: white;
       color: white; }
   .order-btn--edit {
     border: 2px solid #00b09b; }
     .order-btn--edit:hover {
       background-color: #00b09b;
-      border-color: white;
       color: white; }
