@@ -1,24 +1,37 @@
-import React from 'react'
+import React,{Component} from 'react'
 import Aux from './Aux.js'
 import Burger from './Burger'
 import OrderItem from './OrderItem'
+import {Link,withRouter} from 'react-router-dom'
 
 
-const OrderSummary=props=>{
+class OrderSummary extends Component{
     //function to convert array to object
-    const arrtoobj=(arr)=>{
+    arrtoobj=(arr)=>{
         let theobj={}; 
         for(let i of arr){if (theobj[i]==undefined){theobj[i]=1 }
                             else {theobj[i]+=1}} 
-                            return theobj}
+                            return theobj
+                        }
 
-    let ingredientsObj=arrtoobj(props.ingredients)
+    goToCheckoutPage=()=>{
+        console.log("hello sergueyus")
+                            this.props.history.replace({pathname:"/checkout"})
+                        }
+
+
+    componentDidMount(){
+        console.log(this.props)
+    }
+    render(){
+
+    let ingredientsObj=this.arrtoobj(this.props.ingredients)
     let ingredient_item=Object.entries(ingredientsObj).map((el,i)=><OrderItem
                                                                 key={i} 
                                                                 quant={el[1]}
                                                                 ingredient={el[0]} 
-                                                                icon={props.ingredients_list[el[0]].icon}
-                                                                up={props.ingredients_list[el[0]].up}
+                                                                icon={this.props.ingredients_list[el[0]].icon}
+                                                                up={this.props.ingredients_list[el[0]].up}
                                                                 />)
     return(
         <Aux classes="order-summary">
@@ -26,13 +39,13 @@ const OrderSummary=props=>{
         <Aux classes="container">
         <Aux classes="row">
                 <Aux classes="col-2-of-4">
-                <h2 className="order-price">Total price is $ {props.totalPrice}</h2>
-                <Burger ingredients={props.ingredients}/>
+                <h2 className="order-price">Only ${this.props.totalPrice}</h2>
+                <Burger ingredients={this.props.ingredients}/>
                 </Aux>
                 <Aux classes="col-2-of-4">
                 <h1>Confirm your order !</h1>
                 {ingredient_item}
-                <a href="" className="order-btn order-btn--confirm">confirm</a>
+                <button onClick={this.goToCheckoutPage} className="order-btn order-btn--confirm">confirm</button>
                 <a href="#main" className="order-btn order-btn--edit">edit</a>
                 <a href="/" className="order-btn order-btn--abort">abort</a>
                 
@@ -44,5 +57,6 @@ const OrderSummary=props=>{
 
     )
 }
+}
 
-export default OrderSummary
+export default withRouter(OrderSummary)

@@ -6,7 +6,7 @@ import Backdrop from '../components/Backdrop.js'
 import OrderSummary from '../components/OrderSummary.js'
 
 
-class HomePage extends Component {
+class BuilderPage extends Component {
         state={
             burger_name:"Giant Burger",
             burgerPrice:0,
@@ -59,7 +59,7 @@ class HomePage extends Component {
 
    
     componentDidMount=()=>{
-        //this.updatePrice()
+        console.log(this.props)
     }
 
     render(){
@@ -92,4 +92,4 @@ class HomePage extends Component {
 
 }
 
-export default HomePage
+export default BuilderPage
