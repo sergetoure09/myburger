@@ -1,20 +1,28 @@
 .checkout-page{
-    height: 60vh;
+    height: 70vh;
     width: 80vw;
     margin: 0 auto;
     padding: 5rem 3rem;
-    //background-color:$color-primary;
+    background-color:$color-primary;
     //background-color: rgba(233, 231, 231, 0.418);
-    table-layout: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px .9rem 0 rgba(#333,.3);
 
         &__img-box{
             display: block;
             float: left;
             //display: block;
             width: 50%;
-            margin-top: 5px;
-            outline-offset: -20px;
-            outline: 1.2rem solid rgba($color-primary,.7);
+            margin-top: 40px;
+            outline-offset: 10px;
+            opacity: .9;
+            outline: 1.2rem solid rgba(#fff,.9);
+            transition: opacity .3s;
+
+
+            &:hover{
+                opacity: 1;
+            }
 
         }
 

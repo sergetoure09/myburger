@@ -1,0 +1,114 @@
+.form{
+
+
+
+    &__input{
+        width: 100%;
+        height: 3rem;
+        padding: 5px 10px;
+        display: block;
+       // border: 1px solid rgba(128, 128, 128, 0.322);
+        border: none;
+        font-size: 1.5rem;
+        border-bottom: 3px solid $color-green-primary;
+        
+
+        &:focus{
+            outline: none;
+        }
+       // border: none;
+
+
+
+
+    }
+    &__label{
+        display: block;
+        text-align: left;
+        font-size: 1rem;
+        transition: all .2s;
+        padding:5px 10px;
+    }
+
+
+    &__input::-webkit-input-placeholder{
+        font-weight: 300;
+        opacity: .7;
+        font-size: 1.2rem;
+        //color: red;
+    }
+
+    &__input:placeholder-shown + &__label{
+        visibility: hidden;
+        transform: translateY(-15px)
+
+    }
+    &__input:placeholder-shown{
+    
+            border-bottom: 3px solid rgba(160, 155, 155, 0.616);
+    }
+
+    &__input:invalid{
+        border-bottom: 3px solid $color-secondary;
+    }
+
+
+    &__radio{
+        display: none;
+
+
+
+
+    }
+
+    &__radio-label{
+        font-size: 1.5rem;
+        display: inline-block;
+        padding: 0 5px;
+        //border: 1px solid green;
+        //text-align: center;
+        position: relative;
+
+        &:hover{
+            cursor: pointer;
+        }
+
+
+        &::before{
+            content:"";
+            display: inline-block;
+            width:3rem;
+            height: 3rem;
+            border-radius: 50px;
+            border: 5px solid $color-primary;
+            
+
+        }
+
+    }
+
+    &__hack{
+        display: none;
+        border-radius: 50px;
+        border: 7px solid $color-primary;
+        transition: all 1s;
+        position: absolute;
+        top:.8rem;
+        left:1.3rem;
+    }
+  
+
+    &__radio:checked + &__radio-label > &__hack{
+        display: inline-block;
+    }
+
+    &__label-text{
+        display:inline-block;
+        position: absolute;
+        top:5px;
+        left: 4rem; 
+        color: $color-primary;
+    }
+
+    
+}

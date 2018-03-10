@@ -1,17 +1,26 @@
 .checkout-form{
     float: right;
-    width: 50%;
-   // background-color: rgba(233, 231, 231, 0.418);
+    width: 45%;
+   background-color: rgb(255, 255, 255);
+   padding:5rem 1rem;
 
         .form-group{
-            width: 75%;
-            background-color: red;
+            width: 80%;
+            //border:1px solid red;
             margin: 0 auto;
 
             &:not(:last-child){
                 margin-bottom: 2rem;
             }
             
+        }
+
+        .radio-group{
+            display: inline-block;
+            width: 40%;
+            padding: .5rem .5rem;
+            float: left;
+
         }
     
 }
