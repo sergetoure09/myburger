@@ -1,0 +1,17 @@
+.checkout-form{
+    float: right;
+    width: 50%;
+   // background-color: rgba(233, 231, 231, 0.418);
+
+        .form-group{
+            width: 75%;
+            background-color: red;
+            margin: 0 auto;
+
+            &:not(:last-child){
+                margin-bottom: 2rem;
+            }
+            
+        }
+    
+}
