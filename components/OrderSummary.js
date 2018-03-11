@@ -15,7 +15,7 @@ class OrderSummary extends Component{
                         }
 
     goToCheckoutPage=()=>{
-        console.log("hello sergueyus")
+       
                             this.props.history.replace({pathname:"/checkout"})
                         }
 
