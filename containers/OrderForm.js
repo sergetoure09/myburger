@@ -28,7 +28,7 @@ class OrderForm extends Component{
                     },
                     content:"Full name"
                 },
-                value:null,
+                value:'',
                 isValid:true
               
             },
@@ -55,7 +55,7 @@ class OrderForm extends Component{
                     },
                     content:"E-mail"
                 },
-                value:null,
+                value:'',
                 isValid:true
 
             
@@ -82,7 +82,7 @@ class OrderForm extends Component{
                     },
                     content:"Adress lines"
                 },
-                value:null,
+                value:'',
                 isValid:true
 
             
@@ -109,7 +109,7 @@ class OrderForm extends Component{
                     },
                     content:"cheapest"
                 },
-                value:null,
+                value:'',
                 isValid:true
 
             
@@ -136,7 +136,7 @@ class OrderForm extends Component{
                     },
                     content:"fastest"
                 },
-                value:null,
+                value:'',
                 isValid:true
                 
 
@@ -144,21 +144,40 @@ class OrderForm extends Component{
         }
            
             
-        ]
+        ],
+        form_is_Valid:true
     }
+
+
+    updateElementValue=(event,i)=>{
+        let newFormData=[...this.state.formData]
+        let element={...newFormData[i]}
+        element.value=event.target.value
+        newFormData[i]=element
+
+
+        this.setState({
+            formData:newFormData
+
+        })
+
+        console.log(this.state.formData)
+
         
+
+    }
     componentDidMount(){
         console.log(this.props)
-        console.log( Object.keys(this.state.formData))
+       
     }
 
 
     render(){
       
         let formData=this.state.formData.map((el,i)=>
-            (<React.Fragment key={i}>
-            <FormGroup element={el.tag} data= {{...el}} />
-            </React.Fragment>)
+           
+            <FormGroup updateValue={(event)=>this.updateElementValue(event,i)} key={i} element={el.tag} data= {{...el}} />
+           
 
         )
         return(
@@ -167,7 +186,7 @@ class OrderForm extends Component{
                 <div className="checkout-form">
                     {formData}
                     <div className="form-group">
-                    <a href="/" className="u-btn-large order-btn order-btn--confirm ">Order Now!</a>
+                    <a href="/" className="u-btn-large order-btn order-btn--confirm">Order Now!</a>
                     </div>
                 </div>
             </form>

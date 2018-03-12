@@ -7,7 +7,7 @@ const FormGroup=props=>{
             case "input":
             if(props.data.config.type !="radio"){
             formElements=<div className="form-group">
-                <input {...props.data.config}/>
+                <input {...props.data.config} value={props.data.value}  onChange={props.updateValue}/>
                 <label {...props.data.label.config}>{props.data.label.content}</label>
                 </div>
             return formElements
@@ -26,7 +26,7 @@ const FormGroup=props=>{
 
             case "textarea":
             formElements= <div className="form-group">
-            <textarea {...props.data.config}/>
+            <textarea {...props.data.config} value={props.data.value}  onChange={props.updateValue}/>
             <label {...props.data.label.config}>{props.data.label.content}</label>
             
             </div>
