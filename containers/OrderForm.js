@@ -21,8 +21,8 @@ class OrderForm extends Component{
 
                 label:{
                     content:"Full name",
-                    congig:{
-                        htmlfor:"name",
+                    config:{
+                        htmlFor:"name",
                         className:"form__label"
                     },
                     validation:{
@@ -42,7 +42,7 @@ class OrderForm extends Component{
             email:{
                 tag:"input",
                 config:{
-                    type:"text",
+                    type:"email",
                     placeholder:"Email",
                     id:"email",
                     className:"form__input"
@@ -51,8 +51,8 @@ class OrderForm extends Component{
 
                 label:{
                     content:"Email",
-                    congig:{
-                        htmlfor:"email",
+                    config:{
+                        htmlFor:"email",
                         className:"form__label"
                     },
                     validation:{
@@ -72,7 +72,7 @@ class OrderForm extends Component{
                 tag:"textarea",
                 config:{
                    
-                    placeholder:"Addres",
+                    placeholder:"Address",
                     id:"address",
                     className:"form__input"
 
@@ -80,8 +80,8 @@ class OrderForm extends Component{
                 
                 label:{
                     content:"Address",
-                    congig:{
-                        htmlfor:"address",
+                    config:{
+                        htmlFor:"address",
                         className:"form__label"
                     },
                     validation:{
@@ -103,19 +103,19 @@ class OrderForm extends Component{
                 config:{
                     type:"radio",
                     name:"shipment",
-                    id:"shipment",
+                    id:"cheapest",
                     value:"cheapest",
                     className:"form__radio",
-                    checked:true
+                    defaultChecked:true
 
                 },
              
 
                 label:{
                     content:"cheapest",
-                    congig:{
-                        htmlfor:"shipment",
-                        className:"form__radio"
+                    config:{
+                        htmlFor:"cheapest",
+                        className:"form__radio-label"
                     }
                 }
                 },
@@ -126,7 +126,7 @@ class OrderForm extends Component{
                         type:"radio",
                         name:"shipment",
                         value:"fastest",
-                        id:"shipment",
+                        id:"fastest",
                         className:"form__radio",
                         //checked:false
     
@@ -135,13 +135,14 @@ class OrderForm extends Component{
     
                     label:{
                         content:"fastest",
-                        congig:{
-                            htmlfor:"shipment",
-                            className:"form__radio"
+                        config:{
+                            htmlFor:"fastest",
+                            className:"form__radio-label"
                         }
                     }
                     },
-                    vale:''
+                    
+                    value:''
             }
         
         }
@@ -151,11 +152,11 @@ class OrderForm extends Component{
     
 
 
-    updateElementValue=(event,i)=>{
-        let newFormData=[...this.state.formData]
-        let element={...newFormData[i]}
+    updateElementValue=(event,el)=>{
+        let newFormData={...this.state.formData}
+        let element={...newFormData[el]}
         element.value=event.target.type==="radio" ? event.target.id:event.target.value
-        newFormData[i]=element
+        newFormData[el]=element
 
 
         this.setState({
@@ -166,6 +167,13 @@ class OrderForm extends Component{
         console.log(this.state.formData)
 
         
+
+    }
+
+
+    submit=(e)=>{
+        e.preventDefault()
+        console.log(this.state.formData)
 
     }
     componentDidMount(){
@@ -190,7 +198,7 @@ class OrderForm extends Component{
                 <div className="checkout-form">
                     {formData}
                     <div className="form-group">
-                    <a href="/" className="u-btn-large order-btn order-btn--confirm">Order Now!</a>
+                    <a href="/" className="u-btn-large order-btn order-btn--confirm" onClick={this.submit}>Order Now!</a>
                     </div>
                 </div>
             </form>

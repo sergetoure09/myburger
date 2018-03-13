@@ -6,32 +6,18 @@ const RadioGroup=props=>{
         switch(props.data.tag){
             case "input":
             formElements=<div className="form-group">
-                <input {...props.data.config} value={props.data.value}  onChange={props.updateValue}/>
-                <label {...props.data.label.config}>{props.data.label.content}</label>
-                </div>
-            return formElements
-            break; 
-
-            case "textarea":
-            formElements= <div className="form-group">
-            <textarea {...props.data.config} value={props.data.value}  onChange={props.updateValue}/>
-            <label {...props.data.label.config}>{props.data.label.content}</label>
-            </div>
+            <div className="radio-group">
+        <input {...props.data.config} value={props.data.value} onChange={props.updateValue}/>
+        <label {...props.data.label.config}><span className="form__hack"></span><span className="form__label-text">{props.data.label.content}</span></label>
+        </div>
+        </div>
             return formElements
             break;
-
-            case undefined:
-            Object.keys(prop.data).map((el,i)=>
-                    <React.Fragment key={i}>
-                    <RadioGroup data={{...props.data[el]}}/>
-                    </React.Fragment>
-                
-        )
 
 
             
             default:
-            formElements=<React.Fragment><h1>oops no data</h1></React.Fragment>
+            formElements=null
             return formElements
         }
    
@@ -46,4 +32,4 @@ const RadioGroup=props=>{
 }
 
 
-export default FormGroup
+export default RadioGroup

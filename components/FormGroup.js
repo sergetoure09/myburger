@@ -22,12 +22,14 @@ const FormGroup=props=>{
             break;
 
             case undefined:
-            Object.keys(prop.data).map((el,i)=>
+            formElements=Object.keys(props.data).map((el,i)=>
                     <React.Fragment key={i}>
-                    <RadioGroup data={{...props.data[el]}}/>
+                    <RadioGroup data={{...props.data[el]}} updateValue={props.updateValue}/>
                     </React.Fragment>
                 
         )
+
+        return formElements
 
 
             
@@ -48,3 +50,5 @@ const FormGroup=props=>{
 
 
 export default FormGroup
+
+
