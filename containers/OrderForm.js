@@ -6,153 +6,155 @@ import FormGroup from '../components/FormGroup'
 class OrderForm extends Component{
 
     state={
-        formData:[
-            {
+
+        formData:{
+            name:{
                 tag:"input",
                 config:{
                     type:"text",
-                    id:"name",
                     placeholder:"Full name",
+                    id:"name",
                     className:"form__input"
-                        },
-                validation:{
-                    rules:{
-                        required:true,
-                        maxLength:30
-                    }
+
                 },
+             
+
                 label:{
-                    config:{
-                        htmlFor:"name",
+                    content:"Full name",
+                    congig:{
+                        htmlfor:"name",
                         className:"form__label"
                     },
-                    content:"Full name"
+                    validation:{
+                        rules:{
+                            required:true,
+                            maxLength:30
+                        }
+                    }
                 },
-                value:'',
-                isValid:true
-              
-            },
+
+                    value:'',
+                    isValid:true
+
                 
-            
-            {
+            },
+
+            email:{
                 tag:"input",
                 config:{
-                    type:"email",
+                    type:"text",
+                    placeholder:"Email",
                     id:"email",
-                    placeholder:"E-mail",
                     className:"form__input"
-                        },
-                validation:{
-                    rules:{
-                        required:true,
-                        maxLength:30
-                    }
+
                 },
+
                 label:{
-                    config:{
-                        htmlFor:"email",
+                    content:"Email",
+                    congig:{
+                        htmlfor:"email",
                         className:"form__label"
                     },
-                    content:"E-mail"
-                },
-                value:'',
-                isValid:true
+                    validation:{
+                        rules:{
+                            required:true,
+                            maxLength:30
+                        }
+                    },
 
-            
-        },
+                    value:'',
+                    isValid:true
+                }
 
-        { 
-        tag:"textarea",
+            },
+
+            address:{
+                tag:"textarea",
                 config:{
-                    
+                   
+                    placeholder:"Addres",
                     id:"address",
-                    placeholder:"Address lines",
                     className:"form__input"
-                        },
-                validation:{
-                    rules:{
-                        required:true,
-                        maxLength:30
-                    }
+
                 },
+                
                 label:{
-                    config:{
-                        htmlFor:"address",
+                    content:"Address",
+                    congig:{
+                        htmlfor:"address",
                         className:"form__label"
                     },
-                    content:"Adress lines"
-                },
-                value:'',
-                isValid:true
-
-            
-        },
-        {    
-        tag:"input",
-                config:{
-                    type:"radio",
-                    id:"cheapest",
-                    name:"shipment",
-                    //placeholder:"Full name",
-                    className:"form__radio"
-                        },
-                validation:{
-                    rules:{
-                        required:true,
-                        maxLength:30
+                    validation:{
+                        rules:{
+                            required:true,
+                            maxLength:30
+                        }
                     }
                 },
-                label:{
-                    config:{
-                        htmlFor:"cheapest",
-                        className:"form__radio-label"
-                    },
-                    content:"cheapest"
-                },
-                value:'',
-                isValid:true
 
-            
-        },
-        {
-            tag:"input",
-                config:{
-                    type:"radio",
-                    id:"fastest",
-                    name:"shipment",
-                    //placeholder:"Full name",
-                    className:"form__radio"
-                        },
-                validation:{
-                    rules:{
-                        required:true,
-                        maxLength:30
-                    }
-                },
-                label:{
-                    config:{
-                        htmlFor:"fastest",
-                        className:"form__radio-label"
-                    },
-                    content:"fastest"
-                },
-                value:'',
-                isValid:true
+                    value:'',
+                    isValid:true
+            },
+
+            method:{
                 
+                cheapest:{
+                tag:"input",
+                config:{
+                    type:"radio",
+                    name:"shipment",
+                    id:"shipment",
+                    value:"cheapest",
+                    className:"form__radio",
+                    checked:true
 
-            
+                },
+             
+
+                label:{
+                    content:"cheapest",
+                    congig:{
+                        htmlfor:"shipment",
+                        className:"form__radio"
+                    }
+                }
+                },
+
+                fastest:{
+                    tag:"input",
+                    config:{
+                        type:"radio",
+                        name:"shipment",
+                        value:"fastest",
+                        id:"shipment",
+                        className:"form__radio",
+                        //checked:false
+    
+                    },
+                 
+    
+                    label:{
+                        content:"fastest",
+                        congig:{
+                            htmlfor:"shipment",
+                            className:"form__radio"
+                        }
+                    }
+                    },
+                    vale:''
+            }
+        
         }
-           
-            
-        ],
-        form_is_Valid:true
     }
+                
+        
+    
 
 
     updateElementValue=(event,i)=>{
         let newFormData=[...this.state.formData]
         let element={...newFormData[i]}
-        element.value=event.target.value
+        element.value=event.target.type==="radio" ? event.target.id:event.target.value
         newFormData[i]=element
 
 
@@ -174,10 +176,12 @@ class OrderForm extends Component{
 
     render(){
       
-        let formData=this.state.formData.map((el,i)=>
-           
-            <FormGroup updateValue={(event)=>this.updateElementValue(event,i)} key={i} element={el.tag} data= {{...el}} />
-           
+        let formData=Object.keys(this.state.formData).map((el,i)=>
+           (<React.Fragment key={i} >
+            <FormGroup updateValue={(event)=>this.updateElementValue(event,el)} 
+                        //element={this.state.formData[el]} 
+                        data= {{...this.state.formData[el]}} />
+           </React.Fragment>)
 
         )
         return(

@@ -1,8 +1,7 @@
 import React from 'react'
-import RadioGroup from './RadioGroup'
 
 
-const FormGroup=props=>{
+const RadioGroup=props=>{
         let formElements=undefined
         switch(props.data.tag){
             case "input":
