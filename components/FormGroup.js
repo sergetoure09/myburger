@@ -4,6 +4,12 @@ import RadioGroup from './RadioGroup'
 
 const FormGroup=props=>{
         let formElements=undefined
+        let classes=[]
+        let newdata={...props.data.config}
+        classes.push(newdata.className)
+        if(!props.data.isValid){classes.push('form__input--invalid')}
+        newdata.className=classes.join(' ')
+        props.data.config=newdata
         switch(props.data.tag){
             case "input":
             formElements=<div className="form-group">

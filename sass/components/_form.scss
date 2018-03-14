@@ -18,8 +18,11 @@
             outline: none;
         }
        // border: none;
+       
 
-
+        &--invalid{
+            background-color: rgba(226, 103, 103, 0.486);
+        }
 
 
     }

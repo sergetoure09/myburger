@@ -462,6 +462,8 @@ h2 {
   border-bottom: 3px solid #00b09b; }
   .form__input:focus {
     outline: none; }
+  .form__input--invalid {
+    background-color: rgba(226, 103, 103, 0.486); }
 
 .form__label {
   display: block;

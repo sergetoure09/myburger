@@ -6,6 +6,7 @@ import FormGroup from '../components/FormGroup'
 class OrderForm extends Component{
 
     state={
+        isFormValid:true,
 
         formData:{
             name:{
@@ -24,17 +25,18 @@ class OrderForm extends Component{
                     config:{
                         htmlFor:"name",
                         className:"form__label"
-                    },
+                    }
+                },
                     validation:{
                         rules:{
                             required:true,
-                            maxLength:30
+                            maxLength:15
                         }
                     }
-                },
+                ,
 
-                    value:'',
-                    isValid:true
+                value:'',
+                isValid:true
 
                 
             },
@@ -54,17 +56,18 @@ class OrderForm extends Component{
                     config:{
                         htmlFor:"email",
                         className:"form__label"
-                    },
+                    }
+                },
                     validation:{
                         rules:{
                             required:true,
-                            maxLength:30
+                            maxLength:15
                         }
                     },
 
                     value:'',
                     isValid:true
-                }
+                
 
             },
 
@@ -83,13 +86,14 @@ class OrderForm extends Component{
                     config:{
                         htmlFor:"address",
                         className:"form__label"
-                    },
+                    }
+                },
                     validation:{
                         rules:{
                             required:true,
-                            maxLength:30
+                            maxLength:15
                         }
-                    }
+                    
                 },
 
                     value:'',
@@ -147,24 +151,54 @@ class OrderForm extends Component{
         
         }
     }
-                
-        
+    
+
+    validation=(value,rules)=>{
+        let isValid=true
+
+        // if(rules!==undefined && rules.required){
+        //     isValid *= value!=='' && value !==null
+        // }
+        // if(rules!==undefined && rules.required){
+        //     isValid *= value!=='' && value !==null
+        // }
+        if(rules!==undefined){
+            for(let key in rules){
+                switch(key){
+                    case 'required':
+                    isValid =isValid && value !=='' && value !==null
+                    break;
+
+                    case 'maxLength':
+                    isValid =isValid && value.length <= rules.maxLength
+                    break;
+                }
+            }
+        }
+        return isValid
+
+
+    }
     
 
 
     updateElementValue=(event,el)=>{
         let newFormData={...this.state.formData}
         let element={...newFormData[el]}
-        element.value=event.target.type==="radio" ? event.target.id:event.target.value
+        element.value=event.target.type === "radio" ? event.target.id:event.target.value
+        if(element.isValid !== undefined ){
+        element.isValid=this.validation(element.value,element.validation.rules) 
+                                                             }
         newFormData[el]=element
-
+       // newFormData.isFormValid=newFormData.isFormValid && element.isValid
 
         this.setState({
+          
             formData:newFormData
-
+                    
         })
 
-        console.log(this.state.formData)
+        //console.log(this.state.formData)
 
         
 
@@ -172,8 +206,16 @@ class OrderForm extends Component{
 
 
     submit=(e)=>{
+        
+        if(!this.state.isFormValid){
         e.preventDefault()
-        console.log(this.state.formData)
+        console.log("form not valid")
+        console.log(this.state)
+        }else{
+            e.preventDefault()
+            console.log("form is valid")
+            console.log(this.state)
+        }
 
     }
     componentDidMount(){
