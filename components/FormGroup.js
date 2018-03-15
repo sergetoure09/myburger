@@ -7,13 +7,13 @@ const FormGroup=props=>{
         let classes=[]
         let newdata={...props.data.config}
         classes.push(newdata.className)
-        if(!props.data.isValid){classes.push('form__input--invalid')}
+        if(props.data.focus && !props.data.isValid && props.data.value!==''){classes.push('form__input--invalid')}
         newdata.className=classes.join(' ')
         props.data.config=newdata
         switch(props.data.tag){
             case "input":
             formElements=<div className="form-group">
-                <input {...props.data.config} value={props.data.value}  onChange={props.updateValue}/>
+                <input {...props.data.config} value={props.data.value} onFocus={props.checkFocus}  onChange={props.updateValue}/>
                 <label {...props.data.label.config}>{props.data.label.content}</label>
                 </div>
             return formElements
@@ -21,7 +21,7 @@ const FormGroup=props=>{
 
             case "textarea":
             formElements= <div className="form-group">
-            <textarea {...props.data.config} value={props.data.value}  onChange={props.updateValue}/>
+            <textarea {...props.data.config} value={props.data.value} onFocus={props.checkFocus} onChange={props.updateValue}/>
             <label {...props.data.label.config}>{props.data.label.content}</label>
             </div>
             return formElements

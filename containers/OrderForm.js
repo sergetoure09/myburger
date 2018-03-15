@@ -6,7 +6,8 @@ import FormGroup from '../components/FormGroup'
 class OrderForm extends Component{
 
     state={
-        isFormValid:true,
+        formObject:{
+        isFormValid:false,
 
         formData:{
             name:{
@@ -34,9 +35,9 @@ class OrderForm extends Component{
                         }
                     }
                 ,
-
+                    focus:false,
                 value:'',
-                isValid:true
+                isValid:false
 
                 
             },
@@ -64,9 +65,9 @@ class OrderForm extends Component{
                             maxLength:15
                         }
                     },
-
+                    focus:false,
                     value:'',
-                    isValid:true
+                    isValid:false
                 
 
             },
@@ -96,8 +97,9 @@ class OrderForm extends Component{
                     
                 },
 
+                    focus:false,
                     value:'',
-                    isValid:true
+                    isValid:false
             },
 
             method:{
@@ -151,7 +153,20 @@ class OrderForm extends Component{
         
         }
     }
+}
     
+    checkFocus=(el)=>{
+        let newFormObject={...this.state.formObject}
+        let element={...newFormObject.formData[el]}
+        element.focus=true
+        newFormObject.formData[el]=element
+
+        this.setState({
+            formObject:newFormObject
+
+        })
+
+    }
 
     validation=(value,rules)=>{
         let isValid=true
@@ -172,6 +187,9 @@ class OrderForm extends Component{
                     case 'maxLength':
                     isValid =isValid && value.length <= rules.maxLength
                     break;
+
+                    default:
+                    break;
                 }
             }
         }
@@ -183,18 +201,28 @@ class OrderForm extends Component{
 
 
     updateElementValue=(event,el)=>{
-        let newFormData={...this.state.formData}
-        let element={...newFormData[el]}
+        let newFormObject={...this.state.formObject}
+        let element={...newFormObject.formData[el]}
         element.value=event.target.type === "radio" ? event.target.id:event.target.value
         if(element.isValid !== undefined ){
-        element.isValid=this.validation(element.value,element.validation.rules) 
-                                                             }
-        newFormData[el]=element
+        element.isValid= this.validation(element.value,element.validation.rules)                                      }
+        newFormObject.formData[el]=element
        // newFormData.isFormValid=newFormData.isFormValid && element.isValid
 
+
+       let valObj={}
+       for (var key in newFormObject.formData){
+           if(newFormObject.formData[key].isValid!==undefined){
+           valObj[key]=newFormObject.formData[key].isValid
+       }
+   }
+        
+      let formIsValid=Object.values(valObj).reduce((acc,el)=>acc && el)
+      newFormObject.isFormValid=formIsValid
+
         this.setState({
-          
-            formData:newFormData
+           
+            formObject:newFormObject
                     
         })
 
@@ -206,31 +234,30 @@ class OrderForm extends Component{
 
 
     submit=(e)=>{
-        
-        if(!this.state.isFormValid){
+        console.log(this.props)
         e.preventDefault()
+        if(!this.state.formObject.isFormValid){
         console.log("form not valid")
         console.log(this.state)
         }else{
-            e.preventDefault()
             console.log("form is valid")
             console.log(this.state)
         }
 
     }
     componentDidMount(){
-        console.log(this.props)
+     
        
     }
 
 
     render(){
       
-        let formData=Object.keys(this.state.formData).map((el,i)=>
+        let formData=Object.keys(this.state.formObject.formData).map((el,i)=>
            (<React.Fragment key={i} >
-            <FormGroup updateValue={(event)=>this.updateElementValue(event,el)} 
+            <FormGroup checkFocus={()=>this.checkFocus(el)} updateValue={(event)=>this.updateElementValue(event,el)} 
                         //element={this.state.formData[el]} 
-                        data= {{...this.state.formData[el]}} />
+                        data= {{...this.state.formObject.formData[el]}} />
            </React.Fragment>)
 
         )

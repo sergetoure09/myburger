@@ -463,7 +463,8 @@ h2 {
   .form__input:focus {
     outline: none; }
   .form__input--invalid {
-    background-color: rgba(226, 103, 103, 0.486); }
+    background-color: rgba(252, 6, 6, 0.178);
+    border-bottom: 3px solid #DA4453; }
 
 .form__label {
   display: block;
@@ -483,9 +484,6 @@ h2 {
 
 .form__input:placeholder-shown {
   border-bottom: 3px solid rgba(160, 155, 155, 0.616); }
-
-.form__input:invalid {
-  border-bottom: 3px solid #DA4453; }
 
 .form__radio {
   display: none; }

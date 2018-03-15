@@ -21,7 +21,8 @@
        
 
         &--invalid{
-            background-color: rgba(226, 103, 103, 0.486);
+            background-color: rgba(252, 6, 6, 0.178);
+            border-bottom: 3px solid $color-secondary;
         }
 
 
@@ -52,9 +53,9 @@
             border-bottom: 3px solid rgba(160, 155, 155, 0.616);
     }
 
-    &__input:invalid{
-        border-bottom: 3px solid $color-secondary;
-    }
+    // &__input:invalid{
+    //     border-bottom: 3px solid $color-secondary;
+    // }
     
 
 
