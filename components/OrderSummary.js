@@ -16,7 +16,18 @@ class OrderSummary extends Component{
 
     goToCheckoutPage=()=>{
        
-                            this.props.history.replace({pathname:"/checkout"})
+                            this.props.history.replace({
+                                                            pathname:this.props.match.url+"checkout",
+                                                            hash:'',
+                                                            search:'',
+                                                            params:'',
+                                                            state:{
+                                                                ingredients:this.arrtoobj(this.props.ingredients),
+                                                                price:this.props.totalPrice
+                                                            }
+
+                                                        
+                                                        })
                         }
 
 
