@@ -6,6 +6,7 @@ import CheckoutPage from './CheckoutPage.js'
 import {Route,
         Switch} from 'react-router-dom'
 import Spinner from '../components/Spinner'
+import LastOrders from '../components/LastOrders'
 
 
 
@@ -16,12 +17,10 @@ class App extends Component{
             <Aux>
                     <Header />
                 <Switch>
+                <Route exact path="/orders" component={LastOrders}/>
                 <Route exact path="/checkout/spin" component={Spinner}/>
-                     <Route exact path="/checkout" component={CheckoutPage}/>
-                     
-                     <Route path="/" component={BuilderPage}/>
-                   
-                     
+                <Route exact path="/checkout" component={CheckoutPage}/>
+                <Route path="/" component={BuilderPage}/>  
                 </Switch>
                 
             </Aux>
