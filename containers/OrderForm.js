@@ -1,11 +1,15 @@
 import React,{Component} from 'react'
 import {withRouter} from 'react-router-dom'
 import FormGroup from '../components/FormGroup'
+//import Spinner from '../components/Spinner';
+import axios from '../components/axiosInstance'
+
 
 
 class OrderForm extends Component{
 
     state={
+       
         formObject:{
         isFormValid:false,
 
@@ -234,15 +238,32 @@ class OrderForm extends Component{
 
 
     submit=(e)=>{
-        console.log(this.props)
         e.preventDefault()
-        if(!this.state.formObject.isFormValid){
-        console.log("form not valid")
-        console.log(this.state)
-        }else{
-            console.log("form is valid")
-            console.log(this.state)
-        }
+        let newFormObject={...this.state.formObject}
+        let order={}
+        for (var key in newFormObject.formData){
+            
+            order[key]=newFormObject.formData[key].value
+        
+    }
+
+             order['ingredients']=this.props.location.state.ingredients
+             order['price']=this.props.location.state.price
+
+             if(this.state.formObject.isFormValid){
+                
+            axios.post('/order.json',order)
+                                            .then(response=>{console.log(response)})
+                                            .catch(error=>{console.log(error)})
+
+            this.props.history.replace({pathname:this.props.match.url+'/spin'})
+
+             }else{
+                 console.log('please verify the form')
+                 
+             }
+
+       
 
     }
     componentDidMount(){
@@ -263,6 +284,8 @@ class OrderForm extends Component{
         )
         return(
             <React.Fragment>
+            
+            
             <form className="form">
                 <div className="checkout-form">
                     {formData}
@@ -271,6 +294,7 @@ class OrderForm extends Component{
                     </div>
                 </div>
             </form>
+            
             </React.Fragment>
         )
     }

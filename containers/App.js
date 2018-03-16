@@ -5,6 +5,7 @@ import BuilderPage from './BuilderPage.js'
 import CheckoutPage from './CheckoutPage.js'
 import {Route,
         Switch} from 'react-router-dom'
+import Spinner from '../components/Spinner'
 
 
 
@@ -15,8 +16,11 @@ class App extends Component{
             <Aux>
                     <Header />
                 <Switch>
+                <Route exact path="/checkout/spin" component={Spinner}/>
                      <Route exact path="/checkout" component={CheckoutPage}/>
+                     
                      <Route path="/" component={BuilderPage}/>
+                   
                      
                 </Switch>
                 
