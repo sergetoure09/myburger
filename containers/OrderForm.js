@@ -152,7 +152,7 @@ class OrderForm extends Component{
                     }
                     },
                     
-                    value:''
+                    value:'cheapest'
             }
         
         }

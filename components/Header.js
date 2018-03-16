@@ -1,5 +1,6 @@
 import React from 'react'
 import Aux from './Aux.js'
+import {Link} from 'react-router-dom'
 
 
 
@@ -10,11 +11,11 @@ const Header=props=>{
             <div className="header__logo"><a href="/" className="header__logo-link"><img src="./img/018-hamburger.svg"  className="header__logo-img" /></a></div>
             <ul className="header__nav">
                 <li className="header__nav-item">
-                    <a href="#" className="header__nav-link">compose your burger</a>
+                    <Link to='/' className="header__nav-link">compose your burger</Link>
                 </li>
 
                 <li className="header__nav-item">
-                    <a href="#" className="header__nav-link">your lastest orders</a>
+                    <Link to='/orders'  className="header__nav-link">your lastest orders</Link>
                 </li>
             </ul>
 
