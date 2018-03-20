@@ -4,6 +4,7 @@ import Builder from '../components/Builder.js'
 import Checkout from '../components/Checkout.js'
 import Backdrop from '../components/Backdrop.js'
 import OrderSummary from '../components/OrderSummary.js'
+import axios from '../components/axiosInstance'
 
 
 class BuilderPage extends Component {
@@ -13,13 +14,13 @@ class BuilderPage extends Component {
             selected_ingredients:[],
             ingredients_list:
                                 {
-                                    cheese:{up:4,icon:"./img/009-tortillas.svg"},
-                                    tomato:{up:2,icon:"./img/014-tomato.svg"},
-                                    patty:{up:5,icon:"./img/006-steak.svg"},
-                                    pickle:{up:1,icon:"./img/008-pickle.svg"},
-                                    meatball:{up:0.5,icon:"./img/003-meatball.svg"},
-                                    onion:{up:0.5,icon:"./img/002-onion.svg"},
-                                    // klaklo:{up:0.5,icon:"./img/018-hamburger.svg"}
+                                    // cheese:{up:4,icon:"./img/009-tortillas.svg"},
+                                    // tomato:{up:2,icon:"./img/014-tomato.svg"},
+                                    // patty:{up:5,icon:"./img/006-steak.svg"},
+                                    // pickle:{up:1,icon:"./img/008-pickle.svg"},
+                                    // meatball:{up:0.5,icon:"./img/003-meatball.svg"},
+                                    // onion:{up:0.5,icon:"./img/002-onion.svg"},
+                                    // // klaklo:{up:0.5,icon:"./img/018-hamburger.svg"}
                                     
                                 }
         
@@ -60,6 +61,12 @@ class BuilderPage extends Component {
    
     componentDidMount=()=>{
         console.log(this.props)
+        axios.get('/inggredients.json').then(resp=>{
+            console.log(resp.config)
+            this.setState({
+                ingredients_list:resp.data
+            })
+        })
     }
 
     render(){

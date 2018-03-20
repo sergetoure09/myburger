@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom'
 import FormGroup from '../components/FormGroup'
 //import Spinner from '../components/Spinner';
 import axios from '../components/axiosInstance'
+import withError from '../components/withError'
 
 
 
@@ -267,6 +268,7 @@ class OrderForm extends Component{
 
     }
     componentDidMount(){
+        console.log(this.props)
      
        
     }
@@ -300,3 +302,4 @@ class OrderForm extends Component{
     }
 }
 export default withRouter(OrderForm)
+//export default withError(OrderForm,axios)
