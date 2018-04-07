@@ -25,7 +25,7 @@ class BuilderPage extends Component {
                                 }
         
         }
-        updatePrice=(el,op)=>{
+    updatePrice=(el,op)=>{
             let totalPrice=this.state.burgerPrice
             op == 1 ? totalPrice+=this.state.ingredients_list[el].up:totalPrice-=this.state.ingredients_list[el].up
             totalPrice < 0 ? totalPrice=0 : totalPrice=totalPrice
@@ -57,8 +57,6 @@ class BuilderPage extends Component {
         
     }
 }
-
-   
     componentDidMount=()=>{
         console.log(this.props)
         axios.get('/inggredients.json').then(resp=>{
@@ -72,8 +70,6 @@ class BuilderPage extends Component {
     render(){
         
         return(
-
-
             <Aux id="main">
 
                 <Backdrop>
