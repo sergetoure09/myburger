@@ -9,6 +9,7 @@ import Spinner from '../components/Spinner'
 import LastOrders from '../components/LastOrders'
 import axios from 'axios';
 import withError from '../components/withError';
+import Auth from './Auth'
 
 
 
@@ -19,10 +20,12 @@ class App extends Component{
         return(
             <Aux>
                     <Header />
+                   
                 <Switch>
                 <Route exact path="/orders" component={LastOrders}/>
                 <Route exact path="/checkout/spin" component={Spinner}/>
                 <Route exact path="/checkout" component={CheckoutPage}/>
+                <Route exact path="/auth" component={Auth}/>
                 <Route path="/" component={BuilderPage}/>  
                 </Switch>
                 

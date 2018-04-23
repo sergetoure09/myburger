@@ -1,4 +1,6 @@
 import React from 'react'
+import withError from './withError'
+import axios from 'axios'
 
 
 
@@ -8,14 +10,15 @@ const Spinner=props=>{
         <React.Fragment>
             <h1>Thank you for you Order you will be delivered in a while Bon appetit!</h1>
            
-        <div class="spinner">
+        <div className="spinner">
         
-  <div class="bounce1"></div>
-  <div class="bounce2"></div>
-  <div class="bounce3"></div>
+  <div className="bounce1"></div>
+  <div className="bounce2"></div>
+  <div className="bounce3"></div>
 </div>
 </React.Fragment>
     )
 }
 
-export default Spinner
+export default withError(Spinner,axios)
+//export default Spinner

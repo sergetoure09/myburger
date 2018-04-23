@@ -5,30 +5,33 @@ import Aux from './Aux'
 const withError=(WrappedComponent,axios)=>{
     return class extends Component{
         state={
-            error:undefined
+            error:null
         }
     
 componentDidMount(){
     axios.interceptors.request.use(req=>{
         this.setState({
-            error:undefined
+            error:null
         })
 
         return req
     })
 
-    axios.interceptors.response.use(res=>res,err=>{
+    axios.interceptors.response.use(res=>res,error=>{
         this.setState({
             error:error
         })
 
-        return res
+        
     })
 }
  render(){
+     const style={
+         color:"white"
+     }
      return(
          <Aux>
-             {this.state.error ? <div><h1>An error occured</h1><h2>{this.state.error.message}</h2></div>:<WrappedComponent/>}
+             {this.state.error ? <div><h3 style={style}>An error occured</h3></div>:<WrappedComponent/>}
         </Aux>
      )
  } 

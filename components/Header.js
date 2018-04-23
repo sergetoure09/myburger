@@ -30,7 +30,7 @@ const Header=props=>{
                 </li>
 
                  <li className="header__auth-nav-item">
-                    <a href="#" className="header__auth-nav-link"><i className="material-icons header__user md-36">account_circle</i></a>
+                    <Link to="/auth" className="header__auth-nav-link"><i className="material-icons header__user md-36">account_circle</i></Link>
                 </li>
             </ul>
             </div>
