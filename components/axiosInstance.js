@@ -2,8 +2,12 @@ import axios from 'axios'
 
 
 
-const instance=axios.create({
+export const instance=axios.create({
     baseURL:'https://reactburger-19d68.firebaseio.com/'
 })
 
-export default instance
+
+export const authRegisterNewUser=axios.create({
+    baseURL:'https://www.googleapis.com/identitytoolkit/v3/relyingparty'
+})
+

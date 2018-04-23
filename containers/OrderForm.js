@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import {withRouter} from 'react-router-dom'
 import FormGroup from '../components/FormGroup'
 //import Spinner from '../components/Spinner';
-import axios from '../components/axiosInstance'
+import {instance} from '../components/axiosInstance'
 import withError from '../components/withError'
 
 
@@ -253,7 +253,7 @@ class OrderForm extends Component{
 
              if(this.state.formObject.isFormValid){
                 
-            axios.post('/order.json',order)
+            instance.post('/order.json',order)
                                             .then(response=>{console.log(response)})
                                             .catch(error=>{console.log(error)})
 
@@ -301,4 +301,4 @@ class OrderForm extends Component{
         )
     }
 }
-export default withError(withRouter(OrderForm),axios)
+export default withError(withRouter(OrderForm),instance)

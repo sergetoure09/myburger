@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import Aux from './Aux'
-import axios from './axiosInstance'
+import {instance as axios} from './axiosInstance'
 import {connect} from 'react-redux'
 import * as actionTypes from '../actions/actionTypes'
 

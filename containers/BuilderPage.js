@@ -4,7 +4,7 @@ import Builder from '../components/Builder.js'
 import Checkout from '../components/Checkout.js'
 import Backdrop from '../components/Backdrop.js'
 import OrderSummary from '../components/OrderSummary.js'
-import axios from '../components/axiosInstance'
+import {instance} from '../components/axiosInstance'
 import {connect} from 'react-redux'
 import * as actionTypes from "../actions/actionTypes"
 
@@ -117,7 +117,7 @@ const mapDispatchToProps= dispatch=>{
 //     }
 // }
         pullIngredientList:(url)=>dispatch((dispatch)=>{
-        axios.get(url).then(list=>{
+        instance.get(url).then(list=>{
                         //console.log(resp.config)
                         dispatch({type:actionTypes.pullIngredientList,payload:list.data})
                     })        
