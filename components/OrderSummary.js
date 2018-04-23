@@ -34,6 +34,9 @@ class OrderSummary extends Component{
     componentDidMount(){
         console.log(this.props)
     }
+    // shouldComponentUpdate(){
+    //     return this.props.ingredient!=undefined
+    // }
     render(){
 
     let ingredientsObj=this.arrtoobj(this.props.ingredients)
