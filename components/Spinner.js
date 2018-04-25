@@ -8,7 +8,7 @@ import axios from 'axios'
 const Spinner=props=>{
     return(
         <React.Fragment>
-            <h1>Thank you for you Order you will be delivered in a while Bon appetit!</h1>
+            
            
         <div className="spinner">
         

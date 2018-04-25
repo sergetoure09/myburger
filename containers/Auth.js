@@ -5,6 +5,7 @@ import axios from '../components/axiosInstance'
 import * as actionTypes from '../actions/actionTypes'
 import * as actionCreators from '../actions/actionCreators'
 import {connect} from 'react-redux'
+import Spinner from '../components/Spinner'
 
 
 
@@ -15,37 +16,37 @@ class Auth extends Component{
         isFormValid:false,
 
         formData:{
-            name:{
-                tag:"input",
-                config:{
-                    type:"text",
-                    placeholder:"Full name",
-                    id:"name",
-                    className:"form__input"
+            // name:{
+            //     tag:"input",
+            //     config:{
+            //         type:"text",
+            //         placeholder:"Full name",
+            //         id:"name",
+            //         className:"form__input"
 
-                },
+            //     },
              
 
-                label:{
-                    content:"Full name",
-                    config:{
-                        htmlFor:"name",
-                        className:"form__label"
-                    }
-                },
-                    validation:{
-                        rules:{
-                            required:true,
-                            maxLength:30
-                        }
-                    }
-                ,
-                    focus:false,
-                value:'',
-                isValid:false
+            //     label:{
+            //         content:"Full name",
+            //         config:{
+            //             htmlFor:"name",
+            //             className:"form__label"
+            //         }
+            //     },
+            //         validation:{
+            //             rules:{
+            //                 required:true,
+            //                 maxLength:30
+            //             }
+            //         }
+            //     ,
+            //         focus:false,
+            //     value:'',
+            //     isValid:false
 
                 
-            },
+            // },
 
             email:{
                 tag:"input",
@@ -241,25 +242,42 @@ render(){
        </React.Fragment>)
 
     )
+    let {error,loading,userId,token} = this.props.auth
+    let formError=undefined
+    if(loading){
+        formData=<Spinner/>
+    }
+    if(error){
+        formError=error.message
+        //this.props.history.replace({pathname:'/auth'})
+    }
     return(
         <React.Fragment>
-        <div className="Coonect">
-        <h1>PLEASE FILL THE FORM TO SIGNUP</h1>
-        </div>
-        <form className="form">
-            <div className="checkout-form">
-                {formData}
-                <div className="form-group">
-                <a href="/" className="u-btn-large order-btn order-btn--confirm" onClick={this.submit}>Signup</a>
-                </div>
-            </div>
-        </form>
+            
+                                <div className="Connect">
+                                <h1>PLEASE FILL THE FORM TO SIGNUP</h1>
+                                </div>
+                                <form className="form">
+                                
+                                    <div className="checkout-form">
+                                    <span className="error">{formError}</span>
+                                        {formData}
+                                        <div className="form-group">
+                                        <a href="/" className="u-btn-large order-btn order-btn--confirm" onClick={this.submit}>Sign in</a>
+                                        </div>
+                                    </div>
+                                </form>
+            
         
         </React.Fragment>
     )
 }
 }
-
+const mapStateToProps=state=>{
+    return {
+       auth:state.auth
+}
+}
 const mapDispathToProps=dispatch=>{
     return {
         authRegister:({name,email,password})=>dispatch(actionCreators.onAuth({name,email,password}))
@@ -267,4 +285,4 @@ const mapDispathToProps=dispatch=>{
 }
 
 
-export default connect(null,mapDispathToProps)(Auth)
+export default connect(mapStateToProps,mapDispathToProps)(Auth)
