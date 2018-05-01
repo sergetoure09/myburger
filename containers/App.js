@@ -10,11 +10,20 @@ import LastOrders from '../components/LastOrders'
 import axios from 'axios';
 import withError from '../components/withError';
 import Auth from './Auth'
+import {connect} from 'react-redux'
+import * as actionCreators from '../actions/actionCreators'
+import {withRouter} from 'react-router-dom'
 
 
 
 
 class App extends Component{
+
+    componentDidMount(){
+        let token=localStorage.getItem('token')
+        let uid=localStorage.getItem('uid')
+        this.props.autoAuth(token,uid)
+    }
 
     render(){
         return(
@@ -37,4 +46,12 @@ class App extends Component{
 
 }
 
-export default App
+
+
+const mapDispatchToProps=dispatch=>{
+    return {
+        autoAuth:(token,uid)=>dispatch(actionCreators.autoAuth(token,uid))
+    }
+}
+
+export default withRouter(connect(null,mapDispatchToProps)(App))

@@ -103,7 +103,8 @@ const mapStateToProps= (state) =>{
     return{
         selected_ingredients:state.ingredient.selected_ingredients,
         burgerPrice:state.ingredient.burgerPrice,
-        ingredients_list:state.ingredient.ingredients_list
+        ingredients_list:state.ingredient.ingredients_list,
+        auth:state.auth
     }
 }
 

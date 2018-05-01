@@ -4,6 +4,7 @@ import FormGroup from '../components/FormGroup'
 //import Spinner from '../components/Spinner';
 import {instance} from '../components/axiosInstance'
 import withError from '../components/withError'
+import {connect} from 'react-redux'
 
 
 
@@ -250,10 +251,12 @@ class OrderForm extends Component{
 
              order['ingredients']=this.props.location.state.ingredients
              order['price']=this.props.location.state.price
+            order['uid']=this.props.uid
 
              if(this.state.formObject.isFormValid){
+                 console.log(order.uid)
                 
-            instance.post('/order.json',order)
+            instance.post('/order.json?auth='+this.props.token,order)
                                             .then(response=>{console.log(response)})
                                             .catch(error=>{console.log(error)})
 
@@ -268,7 +271,7 @@ class OrderForm extends Component{
 
     }
     componentDidMount(){
-        console.log(this.props)
+       // console.log(this.props)
      
        
     }
@@ -301,4 +304,11 @@ class OrderForm extends Component{
         )
     }
 }
-export default withError(withRouter(OrderForm),instance)
+
+const mapStateToProps=state=>{
+    return {
+        uid:state.auth.userId,
+        token:state.auth.token
+    }
+}
+export default connect(mapStateToProps)(withRouter(OrderForm))

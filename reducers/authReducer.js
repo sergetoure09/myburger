@@ -17,14 +17,22 @@ const authStarter=(state,payload)=>{
 export const authReducer=(state=initialState,{type,payload=false})=>{
     switch(type){
         case actionTypes.AUTH_START: return authStarter(state,payload)
+
+        case actionTypes.AUTO_AUTH:
+        return {
+            ...state,
+            token:payload.token,
+            userId:payload.uid
+        }
         
         case actionTypes.AUTH_SUCCESS:
         return {
         ...state,
-        token:payload.refreshToken,
+        token:payload.token,
+        userId:payload.uid,
         error:null,
         loading:false,
-        userId:payload.uid,
+        //userId:payload.uid,
 
 
         }
@@ -34,6 +42,14 @@ export const authReducer=(state=initialState,{type,payload=false})=>{
             ...state,
             error:payload,
             loading:false
+        }
+
+        case actionTypes.AUTH_LOGOUT:
+        return {
+            ...state,
+            //userId:null,
+            token:null,
+            uid:null
         }
 
         default:

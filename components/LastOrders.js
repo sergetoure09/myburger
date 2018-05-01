@@ -8,7 +8,11 @@ import * as actionTypes from '../actions/actionTypes'
 
 class LastOrders extends Component{
     componentDidMount(){
-        this.props.getOrders('order.json')
+        const queryParams='?auth='+this.props.auth.token+'&orderBy="uid"&equalTo="' +this.props.auth.userId+ '"'
+       this.props.isAuth ? this.props.getOrders("order.json"+queryParams):
+       this.props.history.replace({
+           pathname:'./auth'
+       })
     }
 
     render(){
@@ -30,7 +34,10 @@ class LastOrders extends Component{
 export default connect(
     (state)=>{
         return {
-            orders:state.orders.orders
+            orders:state.orders.orders,
+            auth:state.auth,
+            isAuth:state.auth.token !=null
+           
         }
     },
     (dispatch)=>{

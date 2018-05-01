@@ -13,10 +13,22 @@ export const authStart=()=>{
     }
 }
 
-export const authSuccess=(response)=>{
+
+export const autoAuth=(token,uid)=>{
+    return {
+        type:actionTypes.AUTO_AUTH,
+        payload:{token,uid}
+
+    }
+
+}
+
+export const authSuccess=(token,uid)=>{
+    localStorage.setItem('token',token)
+    localStorage.setItem('uid',uid)
     return {
         type:actionTypes.AUTH_SUCCESS,
-        payload:response
+        payload:{token,uid}
     }
 }
 
@@ -26,7 +38,13 @@ export const authFail=(error)=>{
         payload:error
     }
 }
-
+export const autoLogout=time=>{
+    return dispatch=>{
+       setTimeout(()=> {
+           dispatch({ type:actionTypes.AUTH_LOGOUT})
+       },time)
+    }
+}
 
 export const onAuth=({name,email,password})=>{
     return dispatch =>{
@@ -36,17 +54,29 @@ export const onAuth=({name,email,password})=>{
             password:password,
             returnsecureToken:true
         }
-setTimeout(firebase.auth().signInWithEmailAndPassword(authData.email,authData.password)
+        
+firebase.auth().signInWithEmailAndPassword(authData.email,authData.password)
 .then(response=>{
-    console.log('response is '+response)
-dispatch(authSuccess(response))
-        })
+    let autoLogoutTime=36000000
+    let uid=response.uid
+
+response.getIdToken().then(token=>{
+     console.log('response is '+token)
+dispatch(authSuccess(token,uid))
+dispatch(autoLogout(autoLogoutTime)) //auto logout after 3600s
+        })})
 .catch(error=>{
     if(error.code=="auth/user-not-found"){
         console.log("creating user not existing")
         firebase.auth().createUserWithEmailAndPassword(authData.email,authData.password).then(response=>{
-            console.log("user successfully created.User will be automaticlly connected"+response)
-            dispatch(authSuccess(response))
+            let uid=response.uid
+            response.getIdToken().then(token=>{
+                
+                console.log("user successfully created.User will be automaticlly connected"+response)
+                dispatch(authSuccess(token,uid))     
+            })
+            
+            
         }).catch(error=>{
             console.log('oops an error occured',error)
             dispatch(authFail((error)))
@@ -59,7 +89,7 @@ dispatch(authSuccess(response))
 
     }
 
-}),5000)
+})
 
 
 

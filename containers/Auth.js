@@ -210,6 +210,9 @@ submit=(e)=>{
         if(this.state.formObject.isFormValid){
             console.log(authData)
             this.props.authRegister(authData)
+            this.props.history.replace({
+                pathname:'/'
+            })
             
 //         axios.post('/order.json',order)
 //                                         .then(response=>{console.log(response)})
